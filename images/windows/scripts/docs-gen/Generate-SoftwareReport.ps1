@@ -98,7 +98,7 @@ if (Test-IsWin19) {
 }
 $tools.AddToolVersion("Pulumi", $(Get-PulumiVersion))
 $tools.AddToolVersion("R", $(Get-RVersion))
-$tools.AddToolVersion("Service Fabric SDK", $(Get-ServiceFabricSDKVersion))
+# $tools.AddToolVersion("Service Fabric SDK", $(Get-ServiceFabricSDKVersion))
 $tools.AddToolVersion("Stack", $(Get-StackVersion))
 $tools.AddToolVersion("Subversion (SVN)", $(Get-SVNVersion))
 $tools.AddToolVersion("Swig", $(Get-SwigVersion))
@@ -122,7 +122,7 @@ if (Test-IsWin19) {
 $cliTools.AddToolVersion("GitHub CLI", $(Get-GHVersion))
 
 # Rust Tools
-Initialize-RustEnvironment
+<# Initialize-RustEnvironment
 $rustTools = $installedSoftware.AddHeader("Rust Tools")
 $rustTools.AddToolVersion("Cargo", $(Get-RustCargoVersion))
 $rustTools.AddToolVersion("Rust", $(Get-RustVersion))
@@ -135,7 +135,7 @@ $rustToolsPackages.AddToolVersion("cargo-audit", $(Get-CargoAuditVersion))
 $rustToolsPackages.AddToolVersion("cargo-outdated", $(Get-CargoOutdatedVersion))
 $rustToolsPackages.AddToolVersion("cbindgen", $(Get-CbindgenVersion))
 $rustToolsPackages.AddToolVersion("Clippy", $(Get-RustClippyVersion))
-$rustToolsPackages.AddToolVersion("Rustfmt", $(Get-RustfmtVersion))
+$rustToolsPackages.AddToolVersion("Rustfmt", $(Get-RustfmtVersion)) #>
 
 # Browsers and Drivers
 $browsersAndWebdrivers = $installedSoftware.AddHeader("Browsers and Drivers")

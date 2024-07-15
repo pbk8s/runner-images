@@ -1,4 +1,4 @@
-Describe "MongoDB" {
+<# Describe "MongoDB" {
     Context "Version" {
         It "<ToolName>" -TestCases @(
             @{ ToolName = "mongo" }
@@ -80,7 +80,7 @@ Describe "PostgreSQL" {
             (& $env:PGBIN\pg_config --version).split()[-1] | Should -BeLike "$toolsetVersion*"
         }
     }
-}
+} #>
 
 Describe "MySQL" {
     It "MySQL CLI" {

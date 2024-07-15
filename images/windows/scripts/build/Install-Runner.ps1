@@ -8,7 +8,7 @@ Write-Host "Download latest Runner for GitHub Actions"
 $downloadUrl = Resolve-GithubReleaseAssetUrl `
     -Repo "actions/runner" `
     -Version "latest" `
-    -UrlMatchPattern "actions-runner-win-x64-*[0-9.].zip"
+    -UrlMatchPattern "actions-runner-win-arm64-*[0-9.].zip"
 $fileName = Split-Path $downloadUrl -Leaf
 New-Item -Path "C:\ProgramData\runner" -ItemType Directory
 Invoke-DownloadWithRetry -Url $downloadUrl -Path "C:\ProgramData\runner\$fileName"

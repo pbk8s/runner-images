@@ -267,10 +267,10 @@ function Get-GoogleCloudCLIVersion {
     return (((cmd /c "gcloud --version") -match "Google Cloud SDK") -replace "Google Cloud SDK").Trim()
 }
 
-function Get-ServiceFabricSDKVersion {
+<# function Get-ServiceFabricSDKVersion {
     $serviceFabricSDKVersion = Get-ItemPropertyValue 'HKLM:\SOFTWARE\Microsoft\Service Fabric\' -Name FabricVersion
     return $serviceFabricSDKVersion
-}
+} #>
 
 function Get-NewmanVersion {
     return $(newman --version)

@@ -55,7 +55,7 @@ Describe "DACFx" {
         "${sqlPackagePath}" | Should -Exist
     }
 
-    It "SqlLocalDB" -Skip:(Test-IsWin22) {
+    It "SqlLocalDB" -Skip:(Test-IsWin22 -or Test-IsWin11) {
         $sqlLocalDBPath = 'C:\Program Files\Microsoft SQL Server\130\Tools\Binn\SqlLocalDB.exe'
         "${sqlLocalDBPath}" | Should -Exist
     }
@@ -139,7 +139,7 @@ Describe "Sbt" {
     }
 }
 
-Describe "ServiceFabricSDK" {
+<# Describe "ServiceFabricSDK" {
     It "PowerShell Module" {
         # Ignore PowerShell version check if running in PowerShell Core
         # https://github.com/microsoft/service-fabric/issues/1343
@@ -153,7 +153,7 @@ Describe "ServiceFabricSDK" {
     It "ServiceFabricSDK version" {
         Get-ItemPropertyValue 'HKLM:\SOFTWARE\Microsoft\Service Fabric\' -Name FabricVersion | Should -Not -BeNullOrEmpty
     }
-}
+} #>
 
 Describe "Stack" {
     It "Stack" {

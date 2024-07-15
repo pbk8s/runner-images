@@ -20,7 +20,7 @@ $versionInfoFile = Invoke-DownloadWithRetry -Url $versionInfoUrl -Path "$edgeDri
 $latestVersion = Get-Content -Path $versionInfoFile
 
 Write-Host "Download Microsoft Edge WebDriver..."
-$downloadUrl = "https://msedgedriver.azureedge.net/$latestVersion/edgedriver_win64.zip"
+$downloadUrl = "https://msedgedriver.azureedge.net/$latestVersion/edgedriver_arm64.zip"
 $archivePath = Invoke-DownloadWithRetry $downloadUrl
 
 Write-Host "Expand Microsoft Edge WebDriver archive..."

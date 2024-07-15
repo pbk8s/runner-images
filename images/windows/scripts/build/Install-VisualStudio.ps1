@@ -50,4 +50,12 @@ if (Test-IsWin22) {
         -ExpectedSignature '7535269B94C1FEA4A5EF6D808E371DA242F27936'
 }
 
+if (Test-IsWin11) {    
+    # Install Windows 10 SDK version 10.0.17763
+    Install-Binary -Type EXE `
+        -Url 'https://go.microsoft.com/fwlink/?linkid=2272610' `
+        -InstallArgs @("/q", "/norestart", "/ceip off", "/features OptionId.UWPManaged OptionId.UWPCPP OptionId.UWPLocalized OptionId.DesktopCPPx86 OptionId.DesktopCPPx64 OptionId.DesktopCPParm64") `
+        -ExpectedSignature '573EF451A68C33FB904346D44551BEF3BB5BBF68'
+}
+
 Invoke-PesterTests -TestFile "VisualStudio"

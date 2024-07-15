@@ -18,7 +18,7 @@ function Get-ToolcacheRubyVersions {
     return Get-ChildItem $toolcachePath -Name | Sort-Object { [Version] $_ }
 }
 
-function Get-ToolcachePyPyVersions {
+<# function Get-ToolcachePyPyVersions {
     $toolcachePath = Join-Path $env:AGENT_TOOLSDIRECTORY "PyPy"
     Get-ChildItem -Path $toolcachePath -Name | Sort-Object { [Version] $_ } | ForEach-Object {
         $pypyRootPath = Join-Path $toolcachePath $_ "x86"
@@ -26,7 +26,7 @@ function Get-ToolcachePyPyVersions {
         $pypyVersionOutput -match "^([\d\.]+) \(.+\) \[PyPy ([\d\.]+\S*) .+]$" | Out-Null
         return "{0} [PyPy {1}]" -f $Matches[1], $Matches[2]
     }
-}
+} #>
 
 function Build-CachedToolsSection
 {
@@ -34,7 +34,6 @@ function Build-CachedToolsSection
         [ToolVersionsListNode]::new("Go", $(Get-ToolcacheGoVersions), '^\d+\.\d+', 'List'),
         [ToolVersionsListNode]::new("Node.js", $(Get-ToolcacheNodeVersions), '^\d+', 'List'),
         [ToolVersionsListNode]::new("Python", $(Get-ToolcachePythonVersions), '^\d+\.\d+', 'List'), 
-        [ToolVersionsListNode]::new("PyPy", $(Get-ToolcachePyPyVersions), '^\d+\.\d+', 'List'),
         [ToolVersionsListNode]::new("Ruby", $(Get-ToolcacheRubyVersions), '^\d+\.\d+', 'List')
     )
 }

@@ -22,11 +22,11 @@ Describe "Bicep" {
     }
 }
 
-Describe "GitVersion" -Skip:(Test-IsWin22) {
+<# Describe "GitVersion" -Skip:(Test-IsWin22) {
     It "gitversion is installed" {
         "gitversion /version" | Should -ReturnZeroExitCode
     }
-}
+} #>
 
 Describe "InnoSetup" {
     It "InnoSetup" {

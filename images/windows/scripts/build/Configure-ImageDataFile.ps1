@@ -23,8 +23,12 @@ if (Test-IsWin22) {
     $imageLabel = "windows-2019"
     $softwareUrl = "${githubUrl}/win19/$imageMajorVersion.$imageMinorVersion/images/windows/Windows2019-Readme.md"
     $releaseUrl = "https://github.com/actions/runner-images/releases/tag/win19%2F$imageMajorVersion.$imageMinorVersion"
+} elseif (Test-IsWin11) {
+  $imageLabel = "windows-11"
+  $softwareUrl = "${githubUrl}/win11/$imageMajorVersion.$imageMinorVersion/images/windows/Windows11-Arm-Readme.md"
+  $releaseUrl = "https://github.com/actions/runner-images/releases/tag/win11F$imageMajorVersion.$imageMinorVersion"
 } else {
-    throw "Invalid platform version is found. Either Windows Server 2019 or 2022 are required"
+    throw "Invalid platform version is found. Either Windows Server 2019, 2022 or Windows 11(arm64) are required"
 }
 
 $json = @"

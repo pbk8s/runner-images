@@ -34,7 +34,7 @@ function Install-Msys2 {
     if ($LastExitCode -ne 0) {
         throw "MSYS2 installation failed with exit code $LastExitCode"
     }
-    Remove-Item $installerPath
+    #Remove-Item $installerPath
 }
 
 function Install-Msys2Packages {

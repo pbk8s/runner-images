@@ -4,7 +4,7 @@
 ################################################################################
 
 # Stop w3svc service
-Stop-Service -Name w3svc
+#Stop-Service -Name w3svc
 
 # Install latest nginx in chocolatey
 $installDir = "C:\tools"
@@ -15,7 +15,7 @@ Stop-Service -Name nginx
 Set-Service -Name nginx -StartupType Disabled
 
 # Start w3svc service
-Start-Service -Name w3svc
+#Start-Service -Name w3svc
 
 # Invoke Pester Tests
 Invoke-PesterTests -TestFile "Nginx"
