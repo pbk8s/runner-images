@@ -183,9 +183,12 @@ $allTasksInTaskPath | ForEach-Object {
     Get-ScheduledTask -TaskPath $_ -ErrorAction Ignore | Disable-ScheduledTask -ErrorAction Ignore
 } | Out-Null
 
+
+# commented out the following values because it's failing - 
+# @{TaskPath = "\Microsoft\Windows\.NET Framework\"; TaskName = ".NET Framework NGEN v4.0.30319" }
+#@{TaskPath = "\Microsoft\Windows\.NET Framework\"; TaskName = ".NET Framework NGEN v4.0.30319 64" }
+
 $disableTaskNames = @(
-    @{TaskPath = "\Microsoft\Windows\.NET Framework\"; TaskName = ".NET Framework NGEN v4.0.30319" }
-    @{TaskPath = "\Microsoft\Windows\.NET Framework\"; TaskName = ".NET Framework NGEN v4.0.30319 64" }
     @{TaskPath = "\Microsoft\Windows\AppID\"; TaskName = "SmartScreenSpecific" }
 )
 

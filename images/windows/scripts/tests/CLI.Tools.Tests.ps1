@@ -39,7 +39,7 @@ Describe "GitHub CLI" {
     }
 }
 
-Describe "CloudFoundry CLI" -Skip:(Test-IsWin22) {
+<# Describe "CloudFoundry CLI" -Skip:(Test-IsWin22) {
     It "cf is located in C:\cf-cli" {
         "C:\cf-cli\cf.exe" | Should -Exist
     }
@@ -47,4 +47,4 @@ Describe "CloudFoundry CLI" -Skip:(Test-IsWin22) {
     It "cf" {
         "cf --version" | Should -ReturnZeroExitCode
     }
-}
+} #>

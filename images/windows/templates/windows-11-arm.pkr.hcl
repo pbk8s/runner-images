@@ -93,6 +93,11 @@ variable "managed_image_name" {
   default = ""
 }
 
+variable "managed_image_gallery_name" {
+  type    = string
+  default = ""
+}
+
 variable "managed_image_resource_group_name" {
   type    = string
   default = "${env("ARM_RESOURCE_GROUP")}"
@@ -159,9 +164,19 @@ source "azure-arm" "image" {
   image_publisher                        = "microsoftwindowsdesktop"
   image_sku                              = "win11-23h2-pro"
   location                               = "${var.location}"
-  managed_image_name                     = "${local.managed_image_name}"
-  managed_image_resource_group_name      = "${var.managed_image_resource_group_name}"
-  managed_image_storage_account_type     = "${var.managed_image_storage_account_type}"
+  #managed_image_name                     = "${local.managed_image_name}"
+  #managed_image_resource_group_name      = "${var.managed_image_resource_group_name}"
+  #managed_image_storage_account_type     = "${var.managed_image_storage_account_type}"
+
+  shared_image_gallery_destination {
+    subscription = "${var.subscription_id}"
+    resource_group = "${var.managed_image_resource_group_name}"
+    gallery_name = "${var.managed_image_gallery_name}"
+    image_name = "${local.managed_image_name}"
+    image_version = "${var.image_version}"
+    storage_account_type = "${var.managed_image_storage_account_type}"
+  }
+
   object_id                              = "${var.object_id}"
   os_disk_size_gb                        = "256"
   os_type                                = "Windows"
@@ -276,6 +291,7 @@ build {
       "${path.root}/../scripts/build/Install-PowershellCore.ps1",
       "${path.root}/../scripts/build/Install-WebPlatformInstaller.ps1",
       "${path.root}/../scripts/build/Install-Runner.ps1"
+      "${path.root}/../scripts/build/Install-TortoiseSvn.ps1"
     ]
   }
 
