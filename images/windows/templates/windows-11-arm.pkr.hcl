@@ -105,7 +105,7 @@ variable "managed_image_resource_group_name" {
 
 variable "managed_image_storage_account_type" {
   type    = string
-  default = "Premium_LRS"
+  default = "Standard_LRS"
 }
 
 variable "object_id" {
@@ -291,7 +291,6 @@ build {
       "${path.root}/../scripts/build/Install-PowershellCore.ps1",
       "${path.root}/../scripts/build/Install-WebPlatformInstaller.ps1",
       "${path.root}/../scripts/build/Install-Runner.ps1"
-      "${path.root}/../scripts/build/Install-TortoiseSvn.ps1"
     ]
   }
 

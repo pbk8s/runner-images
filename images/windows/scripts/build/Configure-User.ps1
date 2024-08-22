@@ -27,7 +27,7 @@ if ($LASTEXITCODE -ne 0) {
     throw "Failed to copy HKCU\Software\Microsoft\VisualStudio to HKLM\DEFAULT\Software\Microsoft\VisualStudio"
 }
 
-# disable TSVNCache.exe
+<# # disable TSVNCache.exe
 $registryKeyPath = 'HKCU:\Software\TortoiseSVN'
 if (-not(Test-Path -Path $registryKeyPath)) {
     New-Item -Path $registryKeyPath -ItemType Directory -Force
@@ -37,7 +37,7 @@ New-ItemProperty -Path $registryKeyPath -Name CacheType -PropertyType DWORD -Val
 reg.exe copy HKCU\Software\TortoiseSVN HKLM\DEFAULT\Software\TortoiseSVN /s
 if ($LASTEXITCODE -ne 0) {
     throw "Failed to copy HKCU\Software\TortoiseSVN to HKLM\DEFAULT\Software\TortoiseSVN"
-}
+} #>
 
 Dismount-RegistryHive "HKLM\DEFAULT"
 

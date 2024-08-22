@@ -168,10 +168,10 @@ function Get-SQLPSVersion {
     return $version
 }
 
-function Get-SVNVersion {
+<# function Get-SVNVersion {
     $svnVersion = $(svn --version --quiet)
     return $svnVersion
-}
+} #>
 
 function Get-VSWhereVersion {
     ($(Get-Command -Name vswhere).FileVersionInfo.ProductVersion) -match "(?<version>\d+\.\d+\.\d+)" | Out-Null
