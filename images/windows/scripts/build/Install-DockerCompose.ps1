@@ -3,7 +3,7 @@
 ##  Desc:  Install Docker Compose.
 ################################################################################
 
-Write-Host "Install-Package Docker-Compose v1"
+<# Write-Host "Install-Package Docker-Compose v1"
 $dockerComposev1Url = "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Windows-x86_64.exe"
 $checksumsUrl = "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Windows-x86_64.exe.sha256"
 $dockerComposev1Dir = "C:\ProgramData\docker-compose"
@@ -14,7 +14,7 @@ $externalHash = Get-ChecksumFromUrl -Type "SHA256" `
 $dockerComposev1Path = Invoke-DownloadWithRetry -Url $dockerComposev1Url -Path "$dockerComposev1Dir\docker-compose.exe"
 Test-FileChecksum $dockerComposev1Path -ExpectedSHA256Sum $externalHash
 Add-MachinePathItem $dockerComposev1Dir
-Update-Environment
+Update-Environment #>
 
 Write-Host "Install-Package Docker-Compose v2"
 $toolsetVersion = (Get-ToolsetContent).docker.components.compose

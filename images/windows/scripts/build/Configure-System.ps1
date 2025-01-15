@@ -3,11 +3,11 @@
 ##  Desc:  Applies various configuration settings to the final image
 ################################################################################
 
-Write-Host "Cleanup WinSxS"
+<# Write-Host "Cleanup WinSxS"
 dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase
 if ($LASTEXITCODE -ne 0) {
     throw "Failed to cleanup WinSxS"
-}
+} #>
 
 # Set default version to 1 for WSL (aka LXSS - Linux Subsystem)
 # The value should be set in the default user registry hive
@@ -31,7 +31,7 @@ if (Test-IsWin22) {
     $key.SetValue("DefaultVersion", "1", "DWord")
     $key.Handle.Close()
     [System.GC]::Collect()
-    
+<#     
     Dismount-RegistryHive "HKLM\DEFAULT"
 }
 
@@ -59,9 +59,10 @@ Write-Host "Clean up various directories"
         }
         Remove-Item $_ -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
     }
-}
+} #>
 
-$winInstallDir = "$env:SystemRoot\Installer"
+Dismount-RegistryHive "HKLM\DEFAULT"
+<# $winInstallDir = "$env:SystemRoot\Installer"
 New-Item -Path $winInstallDir -ItemType Directory -Force | Out-Null
 
 # Remove AllUsersAllHosts profile
@@ -75,7 +76,7 @@ if ($LASTEXITCODE -ne 0) {
 
 cmd /c "npm cache clean --force 2>&1" | Out-Null
 if ($LASTEXITCODE -ne 0) {
-    throw "Failed to clean npm cache"
+    throw "Failed to clean npm cache" #>
 }
 
 # allow msi to write to temp folder

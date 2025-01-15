@@ -13,10 +13,10 @@ Describe "Docker" {
 }
 
 Describe "DockerCompose" {
-    It "docker-compose is installed" {
+<#     It "docker-compose is installed" {
         "docker-compose --version" | Should -ReturnZeroExitCode
     }
-
+ #>
     It "docker compose v2" {
         "docker compose version" | Should -ReturnZeroExitCode
     }

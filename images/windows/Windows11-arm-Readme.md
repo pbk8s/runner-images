@@ -1,6 +1,6 @@
 # Windows 11 Pro
 - OS Version: 10.0.22631 Build 4037
-- Image Version: 0.0.2
+- Image Version: 0.0.3
 
 ## Windows features
 - Windows Subsystem for Linux (WSLv1): Enabled
@@ -86,7 +86,7 @@
 
 ### CLI Tools
 - Alibaba Cloud CLI 3.0.219
-- AWS CLI 2.17.33
+- AWS CLI 2.17.34
 - AWS SAM CLI 1.123.0
 - AWS Session Manager CLI 1.2.650.0
 - Azure CLI 2.63.0
@@ -451,7 +451,7 @@ Note: MSYS2 is pre-installed on image but not added to PATH.
 - AzureRM: 2.1.0 (Default), 6.13.1
 - Azure (Cached): 3.8.0.zip, 4.2.1.zip, 5.1.1.zip
 - AzureRM (Cached): 3.8.0.zip, 4.2.1.zip, 5.1.1.zip, 6.7.0.zip
-- AWSPowershell: 4.1.639
+- AWSPowershell: 4.1.640
 - DockerMsftProvider: 1.0.0.8
 - MarkdownPS: 1.10
 - Microsoft.Graph: 2.22.0

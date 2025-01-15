@@ -56,7 +56,8 @@
             "platform" : "win32",
             "versions": [
                 "1.21.*",
-                "1.22.*"
+                "1.22.*",
+                "1.23.*"
             ],
             "default": "1.21.*"
         }
@@ -131,9 +132,9 @@
             "cmake;3.22.1"
         ],
         "ndk": {
-            "default": "25",
+            "default": "27",
             "versions": [
-                "24", "25", "26"
+                "26", "27"
             ]
         }
     },
@@ -162,7 +163,7 @@
         "subversion" : "17",
         "edition" : "Enterprise",
         "channel": "release",
-        "signature": "C2048FB509F1C37A8C3E9EC6648118458AA01780",
+        "signature": "8F985BE8FD256085C90A95D3C74580511A1DB975",
         "workloads": [
             "Component.Dotfuscator",
             "Component.Linux.CMake",
@@ -246,7 +247,8 @@
             "Component.MDD.Linux",
             "Component.MDD.Linux.GCC.arm",
             "Component.Microsoft.Windows.DriverKit",
-            "wasm.tools"
+            "wasm.tools",
+            "Microsoft.Component.MSBuild"
         ],
         "vsix": [
             "SSIS.MicrosoftDataToolsIntegrationServices",
@@ -300,7 +302,8 @@
     "dotnet": {
         "versions": [
             "6.0",
-            "7.0"
+            "7.0",
+            "8.0"
         ],
         "tools": [
             { "name": "nbgv", "test": "nbgv --version", "getversion": "nbgv --version" }
@@ -336,7 +339,7 @@
         ]
     },
     "node": {
-        "default": "18"
+        "default": "18.*"
     },
     "maven": {
         "version": "3.8"

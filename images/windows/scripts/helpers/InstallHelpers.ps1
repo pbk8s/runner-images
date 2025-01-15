@@ -70,7 +70,7 @@ function Install-Binary {
         } else {
             $fileName = [System.IO.Path]::GetFileNameWithoutExtension([System.IO.Path]::GetRandomFileName()) + ".$Type".ToLower()
         }
-        $filePath = Invoke-DownloadWithRetry -Url $Url -Path "${env:Temp}\$fileName"
+        $filePath = Invoke-DownloadWithRetry -Url $Url -Path "${env:TEMP_DIR}\$fileName"
     }
 
     if ($PSBoundParameters.ContainsKey('ExpectedSignature')) {
@@ -92,7 +92,7 @@ function Install-Binary {
     if ($ExtraInstallArgs -and $InstallArgs) {
         throw "InstallArgs and ExtraInstallArgs parameters cannot be used together."
     }
- 
+
     if ($Type -eq "MSI") {
         # MSI binaries should be installed via msiexec.exe
         if ($ExtraInstallArgs) {
@@ -153,7 +153,7 @@ function Invoke-DownloadWithRetry {
     .EXAMPLE
         Invoke-DownloadWithRetry -Url "https://example.com/file.zip"
         Downloads the file from the specified URL and saves it to a temporary path.
-    
+
     .OUTPUTS
         The path where the downloaded file is saved.
     #>
@@ -174,7 +174,7 @@ function Invoke-DownloadWithRetry {
         if ([String]::IsNullOrEmpty($fileName)) {
             $fileName = [System.IO.Path]::GetRandomFileName()
         }
-        $Path = Join-Path -Path "${env:Temp}" -ChildPath $fileName
+        $Path = Join-Path -Path "${env:TEMP_DIR}" -ChildPath $fileName
     }
 
     Write-Host "Downloading package from $Url to $Path..."
@@ -198,7 +198,7 @@ function Invoke-DownloadWithRetry {
                 $retries = 0
             }
         }
-            
+
         if ($retries -eq 0) {
             $totalSeconds = [math]::Round(($(Get-Date) - $downloadStartTime).TotalSeconds, 2)
             throw "Package download failed after $totalSeconds seconds"
@@ -567,7 +567,7 @@ function Get-GithubReleasesByVersion {
         [switch] $WithAssetsOnly
     )
 
-    $localCacheFile = Join-Path ${env:TEMP} "github-releases_$($Repository -replace "/", "_").json"
+    $localCacheFile = Join-Path ${env:TEMP_DIR} "github-releases_$($Repository -replace "/", "_").json"
 
     if (Test-Path $localCacheFile) {
         $releases = Get-Content $localCacheFile | ConvertFrom-Json
@@ -607,8 +607,17 @@ function Get-GithubReleasesByVersion {
         )
     }
 
-    # Sort releases by version
-    $releases = $releases | Sort-Object -Descending { [version] $_.version }
+    # Sort releases by version, then by tag name parts if version is the same
+    $releases = $releases | Sort-Object -Descending {
+        [version] $_.version
+    }, {
+        $cleanTagName = $_.tag_name -replace '^v', ''
+        $parts = $cleanTagName -split '[.\-]'
+        $parsedParts = $parts | ForEach-Object {
+            if ($_ -match '^\d+$') { [int]$_ } else { $_ }
+        }
+        $parsedParts
+    }
 
     # Select releases matching version
     if ($Version -eq "latest") {
@@ -845,7 +854,7 @@ function Get-ChecksumFromUrl {
         [string] $HashType
     )
 
-    $tempFile = Join-Path -Path $env:TEMP -ChildPath ([System.IO.Path]::GetRandomFileName())
+    $tempFile = Join-Path -Path $env:TEMP_DIR -ChildPath ([System.IO.Path]::GetRandomFileName())
     $checksums = (Invoke-DownloadWithRetry -Url $Url -Path $tempFile | Get-Item | Get-Content) -as [string[]]
     Remove-Item -Path $tempFile
 
@@ -1010,8 +1019,8 @@ function Update-Environment {
     )
 
     # Update PATH variable
-    $pathItems = $locations | ForEach-Object { 
-        (Get-Item $_).GetValue('PATH').Split(';') 
+    $pathItems = $locations | ForEach-Object {
+        (Get-Item $_).GetValue('PATH').Split(';')
     } | Select-Object -Unique
     $env:PATH = $pathItems -join ';'
 
@@ -1022,7 +1031,7 @@ function Update-Environment {
             $value = $key.GetValue($name)
             if (-not ($name -ieq 'PATH')) {
                 Set-Item -Path Env:$name -Value $value
-            } 
+            }
         }
     }
 }

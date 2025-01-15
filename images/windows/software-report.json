@@ -10,7 +10,7 @@
     {
       "NodeType": "ToolVersionNode",
       "ToolName": "Image Version:",
-      "Version": "0.0.2"
+      "Version": "0.0.3"
     },
     {
       "NodeType": "HeaderNode",
@@ -388,7 +388,7 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "AWS CLI",
-              "Version": "2.17.33"
+              "Version": "2.17.34"
             },
             {
               "NodeType": "ToolVersionNode",
@@ -1050,7 +1050,7 @@
                   "NodeType": "ToolVersionsListNode",
                   "ToolName": "AWSPowershell",
                   "Versions": [
-                    "4.1.639"
+                    "4.1.640"
                   ],
                   "MajorVersionRegex": "^\\d+",
                   "ListType": "Inline"

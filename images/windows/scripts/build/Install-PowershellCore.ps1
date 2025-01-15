@@ -18,7 +18,7 @@ try {
     $releases = $metadata.LTSReleaseTag -replace '^v'
     foreach ($release in $releases) {
         if ($release -like "${pwshMajorMinor}*") {
-            $downloadUrl = "https://github.com/PowerShell/PowerShell/releases/download/v${release}/PowerShell-${release}-win-x64.msi"
+            $downloadUrl = "https://github.com/PowerShell/PowerShell/releases/download/v${release}/PowerShell-${release}-win-arm64.msi"
             break
         }
     }
