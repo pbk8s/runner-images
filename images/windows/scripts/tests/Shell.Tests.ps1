@@ -1,7 +1,6 @@
 Describe "Shell" {
     $shellTestCases = @(
         @{Name = "C:\shells\gitbash.exe"; Target = "$env:ProgramFiles\Git\bin\bash.exe"},
-        @{Name = "C:\shells\msys2bash.cmd"; Target = $null}
         @{Name = "C:\shells\wslbash.exe"; Target = "$env:SystemRoot\System32\bash.exe"}
     )
 
@@ -9,3 +8,16 @@ Describe "Shell" {
         (Get-Item $Name).Target | Should -BeExactly $Target
     }
 }
+
+##Original Function. Removed msys2.
+<# Describe "Shell" {
+    $shellTestCases = @(
+        @{Name = "C:\shells\gitbash.exe"; Target = "$env:ProgramFiles\Git\bin\bash.exe"},
+        @{Name = "C:\shells\msys2bash.cmd"; Target = $null}
+        @{Name = "C:\shells\wslbash.exe"; Target = "$env:SystemRoot\System32\bash.exe"}
+    )
+
+    It "<Name> target to <Target>" -TestCases $shellTestCases {
+        (Get-Item $Name).Target | Should -BeExactly $Target
+    }
+} #>

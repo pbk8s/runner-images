@@ -1,4 +1,4 @@
-Describe "Wix" {
+<# Describe "Wix" {
     BeforeAll {
       $regKey = "HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*"
       $installedApplications = Get-ItemProperty -Path $regKey
@@ -22,3 +22,4 @@ Describe "Wix" {
       $env:PATH -split ";" | Should -Contain "$testPath"
     }
 }
+ #>

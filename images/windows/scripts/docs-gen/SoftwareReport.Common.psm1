@@ -282,7 +282,7 @@ function Get-CachedDockerImagesTableData {
     } | Sort-Object -Property "Repository:Tag"
 }
 
-function Get-ShellTarget {
+<# function Get-ShellTarget {
     return Get-ChildItem C:\shells -File | Select-Object Name, @{n = "Target"; e = {
             if ($_.Name -eq "msys2bash.cmd") {
                 "C:\msys64\usr\bin\bash.exe"
@@ -300,7 +300,7 @@ function Get-PacmanVersion {
     $rawVersion.Split([System.Environment]::NewLine)[1] -match "\d+\.\d+(\.\d+)?" | Out-Null
     $pacmanVersion = $matches[0]
     return $pacmanVersion
-}
+} #>
 
 function Get-YAMLLintVersion {
     yamllint --version | Get-StringPart -Part 1

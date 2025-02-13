@@ -49,7 +49,7 @@ if ($LASTEXITCODE -ne 0) {
     throw "Failed to clean npm cache"
 }
 
-if (Test-IsWin25) {
+<# if (Test-IsWin25) {
     $directoriesToCompact = @(
         "$env:SystemRoot\assembly",
         "$env:SystemRoot\WinSxS"
@@ -67,4 +67,4 @@ if (Test-IsWin25) {
     $finish = get-date
     $time = "$(($finish - $start).Minutes):$(($finish - $start).Seconds)"
     Write-Host "The process took a total of $time (in minutes:seconds)"
-}
+} #>

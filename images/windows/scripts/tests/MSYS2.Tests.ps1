@@ -1,4 +1,4 @@
-BeforeAll {
+<# BeforeAll {
     $msys2Dir = "C:\msys64\usr\bin"
     $originalPath = $env:PATH
 }
@@ -70,3 +70,4 @@ foreach ($mingwType in $mingwTypes) {
         }
     }
 }
+ #>

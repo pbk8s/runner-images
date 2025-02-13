@@ -188,11 +188,11 @@ Describe "WebPlatformInstaller" {
     }
 }
 
-Describe "Zstd" {
+<# Describe "Zstd" {
     It "zstd" {
         "zstd -V" | Should -ReturnZeroExitCode
     }
-}
+} #>
 
 Describe "Pipx" {
     It "Pipx" {

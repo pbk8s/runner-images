@@ -67,14 +67,14 @@ $tools.AddToolVersion("azcopy", $(Get-AzCopyVersion))
 $tools.AddToolVersion("Bazel", $(Get-BazelVersion))
 $tools.AddToolVersion("Bazelisk", $(Get-BazeliskVersion))
 $tools.AddToolVersion("Bicep", $(Get-BicepVersion))
-$tools.AddToolVersion("Cabal", $(Get-CabalVersion))
+#$tools.AddToolVersion("Cabal", $(Get-CabalVersion))
 $tools.AddToolVersion("CMake", $(Get-CMakeVersion))
 $tools.AddToolVersion("CodeQL Action Bundle", $(Get-CodeQLBundleVersion))
 $tools.AddToolVersion("Docker", $(Get-DockerVersion))
-$tools.AddToolVersion("Docker Compose v1", $(Get-DockerComposeVersion))
+#$tools.AddToolVersion("Docker Compose v1", $(Get-DockerComposeVersion))
 $tools.AddToolVersion("Docker Compose v2", $(Get-DockerComposeVersionV2))
 $tools.AddToolVersion("Docker-wincred", $(Get-DockerWincredVersion))
-$tools.AddToolVersion("ghc", $(Get-GHCVersion))
+#$tools.AddToolVersion("ghc", $(Get-GHCVersion))
 $tools.AddToolVersion("Git", $(Get-GitVersion))
 $tools.AddToolVersion("Git LFS", $(Get-GitLFSVersion))
 <# if (Test-IsWin19) {
@@ -104,9 +104,9 @@ $tools.AddToolVersion("Stack", $(Get-StackVersion))
 $tools.AddToolVersion("Swig", $(Get-SwigVersion))
 $tools.AddToolVersion("VSWhere", $(Get-VSWhereVersion))
 $tools.AddToolVersion("WinAppDriver", $(Get-WinAppDriver))
-$tools.AddToolVersion("WiX Toolset", $(Get-WixVersion))
+#$tools.AddToolVersion("WiX Toolset", $(Get-WixVersion))
 $tools.AddToolVersion("yamllint", $(Get-YAMLLintVersion))
-$tools.AddToolVersion("zstd", $(Get-ZstdVersion))
+#$tools.AddToolVersion("zstd", $(Get-ZstdVersion))
 
 # CLI Tools
 $cliTools = $installedSoftware.AddHeader("CLI Tools")
@@ -149,7 +149,7 @@ $installedSoftware.AddHeader("Java").AddTable($(Get-JavaVersions))
 $installedSoftware.AddHeader("Shells").AddTable($(Get-ShellTarget))
 
 # MSYS2
-$msys2 = $installedSoftware.AddHeader("MSYS2")
+<# $msys2 = $installedSoftware.AddHeader("MSYS2")
 $msys2.AddToolVersion("Pacman", $(Get-PacmanVersion))
 
 $notes = @'
@@ -157,7 +157,7 @@ Location: C:\msys64
 
 Note: MSYS2 is pre-installed on image but not added to PATH.
 '@
-$msys2.AddHeader("Notes").AddNote($notes)
+$msys2.AddHeader("Notes").AddNote($notes) #>
 
 # BizTalk Server
 <# if (Test-IsWin19)

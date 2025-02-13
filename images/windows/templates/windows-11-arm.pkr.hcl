@@ -367,7 +367,6 @@ build {
       "${path.root}/../scripts/build/Install-IEWebDriver.ps1",
       "${path.root}/../scripts/build/Install-Apache.ps1",
       "${path.root}/../scripts/build/Install-Nginx.ps1",
-      "${path.root}/../scripts/build/Install-Msys2.ps1",
       "${path.root}/../scripts/build/Install-WinAppDriver.ps1",
       "${path.root}/../scripts/build/Install-R.ps1",
       "${path.root}/../scripts/build/Install-AWSTools.ps1",
@@ -377,12 +376,10 @@ build {
       "${path.root}/../scripts/build/Install-SQLOLEDBDriver.ps1",
       "${path.root}/../scripts/build/Install-DotnetSDK.ps1",
       "${path.root}/../scripts/build/Install-Mingw64.ps1",
-      "${path.root}/../scripts/build/Install-Haskell.ps1",
       "${path.root}/../scripts/build/Install-Stack.ps1",
       "${path.root}/../scripts/build/Install-Miniconda.ps1",
       "${path.root}/../scripts/build/Install-AzureCosmosDbEmulator.ps1",
       "${path.root}/../scripts/build/Install-Mercurial.ps1",
-      "${path.root}/../scripts/build/Install-Zstd.ps1",
       "${path.root}/../scripts/build/Install-NSIS.ps1",
       "${path.root}/../scripts/build/Install-Vcpkg.ps1",
       "${path.root}/../scripts/build/Install-Bazel.ps1",
@@ -460,6 +457,10 @@ build {
 
   provisioner "windows-restart" {
     restart_timeout = "10m"
+  }
+
+  provisioner "powershell" {
+    inline = ["Get-AppxPackage -Name Microsoft.Copilot | Remove-AppxPackage -AllUsers"]
   }
 
   provisioner "powershell" {

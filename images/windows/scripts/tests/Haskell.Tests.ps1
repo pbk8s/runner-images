@@ -1,4 +1,4 @@
-Describe "Haskell" {
+<# Describe "Haskell" {
     $ghcPackagesPath = "c:\ghcup\ghc"
     [array] $ghcVersionList = Get-ChildItem -Path $ghcPackagesPath -Filter "*" | ForEach-Object { $_.Name.Trim() }
     $ghcCount = $ghcVersionList.Count
@@ -60,3 +60,4 @@ Describe "Haskell" {
         "ghcup run --mingw-path -- pacman --version" | Should -ReturnZeroExitCode
     }
 }
+ #>

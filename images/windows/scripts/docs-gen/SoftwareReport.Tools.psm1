@@ -184,18 +184,18 @@ function Get-WinAppDriver {
     return $winAppDriverVersion
 }
 
-function Get-WixVersion {
+<# function Get-WixVersion {
     $regKey = "HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*"
     $installedApplications = Get-ItemProperty -Path $regKey
     $wixToolsetVersion = ($installedApplications | Where-Object { $_.BundleCachePath -imatch ".*\\WiX\d*\.exe$" } | Select-Object -First 1).DisplayName
     return ($wixToolsetVersion -replace "^WiX Toolset v").Trim()
-}
+} #>
 
-function Get-ZstdVersion {
+<# function Get-ZstdVersion {
     $(zstd --version) -match "v(?<version>\d+\.\d+\.\d+)" | Out-Null
     $zstdVersion = $Matches.Version
     return $zstdVersion
-}
+} #>
 
 function Get-AzureCLIVersion {
     $azureCLIVersion = $(az version) | ConvertFrom-Json | Foreach{ $_."azure-cli" }
@@ -245,17 +245,17 @@ function Get-7zipVersion {
     return $version
 }
 
-function Get-GHCVersion {
+<# function Get-GHCVersion {
     ((ghc --version) | Out-String) -match "version (?<version>\d+\.\d+\.\d+)" | Out-Null
     $ghcVersion = $Matches.Version
     return $ghcVersion
-}
+} #>
 
-function Get-CabalVersion {
+<# function Get-CabalVersion {
     ((cabal --version) | Out-String) -match "version (?<version>\d+\.\d+\.\d+\.\d+)" | Out-Null
     $cabalVersion = $Matches.Version
     return $cabalVersion
-}
+} #>
 
 function Get-StackVersion {
     ((stack --version --quiet) | Out-String) -match "Version (?<version>\d+\.\d+\.\d+)," | Out-Null
