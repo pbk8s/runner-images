@@ -146,7 +146,7 @@ $browsersAndWebdrivers.AddHeader("Environment variables").AddTable($(Build-Brows
 $installedSoftware.AddHeader("Java").AddTable($(Get-JavaVersions))
 
 # Shells
-$installedSoftware.AddHeader("Shells").AddTable($(Get-ShellTarget))
+#$installedSoftware.AddHeader("Shells").AddTable($(Get-ShellTarget))
 
 # MSYS2
 <# $msys2 = $installedSoftware.AddHeader("MSYS2")
