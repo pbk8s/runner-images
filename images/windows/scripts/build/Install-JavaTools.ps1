@@ -7,7 +7,7 @@
 function Set-JavaPath {
     param (
         [string] $Version,
-        [string] $Architecture = "x64",
+        [string] $Architecture = "aarch64",
         [switch] $Default
     )
 
@@ -19,8 +19,8 @@ function Set-JavaPath {
         exit 1
     }
 
-    Write-Host "Set 'JAVA_HOME_${Version}_X64' environmental variable as $javaPath"
-    [Environment]::SetEnvironmentVariable("JAVA_HOME_${Version}_X64", $javaPath, "Machine")
+    Write-Host "Set 'JAVA_HOME_${Version}_AARCH64' environmental variable as $javaPath"
+    [Environment]::SetEnvironmentVariable("JAVA_HOME_${Version}_AARCH64", $javaPath, "Machine")
 
     if ($Default) {
         # Clean up any other Java folders from PATH to make sure that they won't conflict with each other
@@ -49,7 +49,7 @@ function Set-JavaPath {
 function Install-JavaJDK {
     param(
         [string] $JDKVersion,
-        [string] $Architecture = "x64"
+        [string] $Architecture = "aarch64"
     )
 
     # Get Java version from api

@@ -1,4 +1,4 @@
-Describe "Android SDK" {
+<# Describe "Android SDK" {
     $androidToolset = (Get-ToolsetContent).android
     $androidInstalledPackages = Get-AndroidInstalledPackages
 
@@ -69,3 +69,4 @@ Describe "Android SDK" {
         }
     }
 }
+ #>

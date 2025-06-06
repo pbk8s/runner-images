@@ -167,7 +167,7 @@ source "azure-arm" "image" {
   communicator                           = "winrm"
   image_offer                            = "windows11preview-arm64"
   image_publisher                        = "microsoftwindowsdesktop"
-  image_sku                              = "win11-23h2-ent"
+  image_sku                              = "win11-24h2-ent"
   location                               = "${var.location}"
   #managed_image_name                     = "${local.managed_image_name}"
   #managed_image_resource_group_name      = "${var.managed_image_resource_group_name}"
@@ -333,16 +333,13 @@ build {
       "${path.root}/../scripts/build/Install-ChocolateyPackages.ps1",
       "${path.root}/../scripts/build/Install-JavaTools.ps1",
       "${path.root}/../scripts/build/Install-Kotlin.ps1",
-      "${path.root}/../scripts/build/Install-OpenSSL.ps1"
+      "${path.root}/../scripts/build/Install-OpenSSL.ps1",
+      "${path.root}/../scripts/build/Install-LLVM.ps1"
     ]
   }
 
   provisioner "windows-restart" {
     restart_timeout = "10m"
-  }
-
-  provisioner "windows-shell" {
-    inline = ["wmic product where \"name like '%%microsoft azure powershell%%'\" call uninstall /nointeractive"]
   }
 
   provisioner "powershell" {
@@ -353,12 +350,12 @@ build {
       "${path.root}/../scripts/build/Install-Toolset.ps1",
       "${path.root}/../scripts/build/Configure-Toolset.ps1",
       "${path.root}/../scripts/build/Install-NodeJS.ps1",
-      "${path.root}/../scripts/build/Install-AndroidSDK.ps1",
       "${path.root}/../scripts/build/Install-PowershellAzModules.ps1",
       "${path.root}/../scripts/build/Install-Pipx.ps1",
       "${path.root}/../scripts/build/Install-Git.ps1",
       "${path.root}/../scripts/build/Install-GitHub-CLI.ps1",
       "${path.root}/../scripts/build/Install-PHP.ps1",
+      "${path.root}/../scripts/build/Install-Rust.ps1",
       "${path.root}/../scripts/build/Install-Sbt.ps1",
       "${path.root}/../scripts/build/Install-Chrome.ps1",
       "${path.root}/../scripts/build/Install-EdgeDriver.ps1",
@@ -399,8 +396,7 @@ build {
       "${path.root}/../scripts/build/Configure-DynamicPort.ps1",
       "${path.root}/../scripts/build/Configure-GDIProcessHandleQuota.ps1",
       "${path.root}/../scripts/build/Configure-Shell.ps1",
-      "${path.root}/../scripts/build/Configure-DeveloperMode.ps1",
-      "${path.root}/../scripts/build/Install-LLVM.ps1"
+      "${path.root}/../scripts/build/Configure-DeveloperMode.ps1"
     ]
   }
 

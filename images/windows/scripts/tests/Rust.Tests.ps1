@@ -1,4 +1,4 @@
-<# Describe "Rust" {
+Describe "Rust" {
     BeforeAll {
         $env:RUSTUP_HOME = "C:\Users\Default\.rustup"
         $env:CARGO_HOME = "C:\Users\Default\.cargo"
@@ -33,4 +33,3 @@
         $binPath | Should -Exist
     }
 }
- #>

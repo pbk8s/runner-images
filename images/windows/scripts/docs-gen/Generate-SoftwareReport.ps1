@@ -6,7 +6,7 @@ $global:ProgressPreference = "SilentlyContinue"
 $ErrorView = "NormalView"
 Set-StrictMode -Version Latest
 
-Import-Module (Join-Path $PSScriptRoot "SoftwareReport.Android.psm1") -DisableNameChecking
+#Import-Module (Join-Path $PSScriptRoot "SoftwareReport.Android.psm1") -DisableNameChecking
 Import-Module (Join-Path $PSScriptRoot "SoftwareReport.Browsers.psm1") -DisableNameChecking
 Import-Module (Join-Path $PSScriptRoot "SoftwareReport.CachedTools.psm1") -DisableNameChecking
 Import-Module (Join-Path $PSScriptRoot "SoftwareReport.Common.psm1") -DisableNameChecking
@@ -50,7 +50,12 @@ $packageManagement.AddToolVersion("RubyGems", $(Get-RubyGemsVersion))
 $packageManagement.AddToolVersion("Vcpkg", $(Get-VcpkgVersion))
 $packageManagement.AddToolVersion("Yarn", $(Get-YarnVersion))
 
-$packageManagement.AddHeader("Environment variables").AddTable($(Build-PackageManagementEnvironmentTable))
+#$packageManagement.AddHeader("Environment variables").AddTable($(Build-PackageManagementEnvironmentTable))
+$envTable = $(Build-PackageManagementEnvironmentTable)
+Write-Host "Section Build-PackageManagementEnvironmentTable count: $($envTable.Count)"
+if ($envTable -and $envTable.Count -gt 0) {
+    $packageManagement.AddHeader("Environment variables").AddTable($envTable)
+}
 
 # Project Management
 $projectManagement = $installedSoftware.AddHeader("Project Management")
@@ -122,7 +127,7 @@ $cliTools.AddToolVersion("Azure DevOps CLI extension", $(Get-AzureDevopsExtVersi
 $cliTools.AddToolVersion("GitHub CLI", $(Get-GHVersion))
 
 # Rust Tools
-<# Initialize-RustEnvironment
+Initialize-RustEnvironment
 $rustTools = $installedSoftware.AddHeader("Rust Tools")
 $rustTools.AddToolVersion("Cargo", $(Get-RustCargoVersion))
 $rustTools.AddToolVersion("Rust", $(Get-RustVersion))
@@ -135,15 +140,25 @@ $rustToolsPackages.AddToolVersion("cargo-audit", $(Get-CargoAuditVersion))
 $rustToolsPackages.AddToolVersion("cargo-outdated", $(Get-CargoOutdatedVersion))
 $rustToolsPackages.AddToolVersion("cbindgen", $(Get-CbindgenVersion))
 $rustToolsPackages.AddToolVersion("Clippy", $(Get-RustClippyVersion))
-$rustToolsPackages.AddToolVersion("Rustfmt", $(Get-RustfmtVersion)) #>
+$rustToolsPackages.AddToolVersion("Rustfmt", $(Get-RustfmtVersion))
 
 # Browsers and Drivers
 $browsersAndWebdrivers = $installedSoftware.AddHeader("Browsers and Drivers")
 $browsersAndWebdrivers.AddNodes($(Build-BrowserSection))
-$browsersAndWebdrivers.AddHeader("Environment variables").AddTable($(Build-BrowserWebdriversEnvironmentTable))
+#$browsersAndWebdrivers.AddHeader("Environment variables").AddTable($(Build-BrowserWebdriversEnvironmentTable))
+$envTable = $(Build-BrowserWebdriversEnvironmentTable)
+Write-Host "Section Build-BrowserWebdriversEnvironmentTable count: $($envTable.Count)"
+if ($envTable -and $envTable.Count -gt 0) {
+    $browsersAndWebdrivers.AddHeader("Environment variables").AddTable($envTable)
+}
 
 # Java
-$installedSoftware.AddHeader("Java").AddTable($(Get-JavaVersions))
+#$installedSoftware.AddHeader("Java").AddTable($(Get-JavaVersions))
+$envTable = @(Get-JavaVersions)
+Write-Host "Section Get-JavaVersions count: $($envTable.Count)"
+if ($envTable -and $envTable.Count -gt 0) {
+    $installedSoftware.AddHeader("Java").AddTable($envTable)
+}
 
 # Shells
 #$installedSoftware.AddHeader("Shells").AddTable($(Get-ShellTarget))
@@ -182,17 +197,25 @@ $databaseTools.AddToolVersion("SQL OLEDB Driver", $(Get-SQLOLEDBDriverVersion))
 #$databaseTools.AddToolVersion("SQLPS", $(Get-SQLPSVersion))
 
 # Web Servers
-$installedSoftware.AddHeader("Web Servers").AddTable($(Build-WebServersSection))
+#$installedSoftware.AddHeader("Web Servers").AddTable($(Build-WebServersSection))
+$envTable = $(Build-WebServersSection)
+Write-Host "Section Build-WebServersSection count: $($envTable.Count)"
+if ($envTable -and $envTable.Count -gt 0) {
+    $installedSoftware.AddHeader("Web Servers").AddTable($envTable)
+}
 
 # Visual Studio
 $vsTable = Get-VisualStudioVersion
 $visualStudio = $installedSoftware.AddHeader($vsTable.Name)
+Write-Host "Section visualStudio.AddTable"
 $visualStudio.AddTable($vsTable)
 
 $workloads = $visualStudio.AddHeader("Workloads, components and extensions")
+Write-Host "Section workloads.AddTable"
 $workloads.AddTable((Get-VisualStudioComponents) + (Get-VisualStudioExtensions))
 
 $msVisualCpp = $visualStudio.AddHeader("Microsoft Visual C++")
+Write-Host "Section msVisualCpp.AddTable"
 $msVisualCpp.AddTable($(Get-VisualCPPComponents))
 
 $visualStudio.AddToolVersionsList("Installed Windows SDKs", $(Get-WindowsSDKs).Versions, '^.+')
@@ -203,7 +226,7 @@ $netCoreTools = $installedSoftware.AddHeader(".NET Core Tools")
     # Visual Studio 2019 brings own version of .NET Core which is different from latest official version
     $netCoreTools.AddToolVersionsListInline(".NET Core SDK", $(Get-DotnetSdks).Versions, '^\d+\.\d+\.\d{2}')
 } else { #>
-$netCoreTools.AddToolVersionsListInline(".NET Core SDK", $(Get-DotnetSdks).Versions, '^\d+\.\d+\.\d')
+$netCoreTools.AddToolVersionsListInline(".NET Core SDK", $(Get-DotnetSdks).Versions, '^\d+\.\d+\.\d{3}')
 #}
 $netCoreTools.AddToolVersionsListInline(".NET Framework", $(Get-DotnetFrameworkVersions), '^.+')
 Get-DotnetRuntimes | ForEach-Object {
@@ -226,13 +249,18 @@ All other versions are saved but not installed.
 $psModules.AddNote($azPsNotes)
 
 # Android
-$android = $installedSoftware.AddHeader("Android")
-$android.AddTable($(Build-AndroidTable))
+#$android = $installedSoftware.AddHeader("Android")
+#$android.AddTable($(Build-AndroidTable))
 
-$android.AddHeader("Environment variables").AddTable($(Build-AndroidEnvironmentTable))
+#$android.AddHeader("Environment variables").AddTable($(Build-AndroidEnvironmentTable))
 
 # Cached Docker images
-$installedSoftware.AddHeader("Cached Docker images").AddTable($(Get-CachedDockerImagesTableData))
+#$installedSoftware.AddHeader("Cached Docker images").AddTable($(Get-CachedDockerImagesTableData))
+$envTable = @(Get-CachedDockerImagesTableData)
+Write-Host "Section CachedDockerImagesTableData count: $($envTable.Count)"
+if ($envTable -and $envTable.Count -gt 0) {
+    $installedSoftware.AddHeader("Cached Docker images").AddTable($envTable)
+}
 
 # Generate reports
 $softwareReport.ToJson() | Out-File -FilePath "C:\software-report.json" -Encoding UTF8NoBOM

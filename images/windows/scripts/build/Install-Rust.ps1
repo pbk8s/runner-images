@@ -8,12 +8,12 @@
 $env:RUSTUP_HOME = "C:\Users\Default\.rustup"
 $env:CARGO_HOME = "C:\Users\Default\.cargo"
 
-# Download the latest rustup-init.exe for Windows x64
+# Download the latest rustup-init.exe for Windows aarch64
 # See https://rustup.rs/#
-$rustupPath = Invoke-DownloadWithRetry "https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe"
+$rustupPath = Invoke-DownloadWithRetry "https://static.rust-lang.org/rustup/dist/aarch64-pc-windows-msvc/rustup-init.exe"
 
 #region Supply chain security
-$distributorFileHash = (Invoke-RestMethod -Uri 'https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe.sha256').Trim()
+$distributorFileHash = (Invoke-RestMethod -Uri 'https://static.rust-lang.org/rustup/dist/aarch64-pc-windows-msvc/rustup-init.exe.sha256').Trim()
 Test-FileChecksum $rustupPath -ExpectedSHA256Sum $distributorFileHash
 #endregion
 
@@ -29,10 +29,11 @@ Add-DefaultPathItem "%USERPROFILE%\.cargo\bin"
 $env:Path += ";$env:CARGO_HOME\bin"
 
 # Add i686 target for building 32-bit binaries
-rustup target add i686-pc-windows-msvc
+#rustup target add i686-pc-windows-msvc
+rustup target add aarch64-pc-windows-msvc
 
 # Add target for building mingw-w64 binaries
-rustup target add x86_64-pc-windows-gnu
+#rustup target add aarch64-pc-windows-gnu
 
 # Install common tools
 rustup component add rustfmt clippy
@@ -48,4 +49,4 @@ if ($LASTEXITCODE -ne 0) {
 # Cleanup Cargo crates cache
 Remove-Item "${env:CARGO_HOME}\registry\*" -Recurse -Force
 
-#Invoke-PesterTests -TestFile "Rust"
+Invoke-PesterTests -TestFile "Rust"

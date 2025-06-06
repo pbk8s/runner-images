@@ -4,7 +4,7 @@
 ##  Supply chain security: checksum validation
 ################################################################################
 
-$arch = 'INTEL'
+$arch = 'ARM'
 $bits = '64'
 $light = $false
 $installerType = "exe"
