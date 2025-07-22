@@ -92,11 +92,11 @@ Describe "Julia" {
     }
 }
 
-Describe "CMake" {
+<# Describe "CMake" {
     It "cmake" {
         "cmake --version" | Should -ReturnZeroExitCode
     }
-}
+} #>
 
 Describe "ImageMagick" {
     It "ImageMagick" {

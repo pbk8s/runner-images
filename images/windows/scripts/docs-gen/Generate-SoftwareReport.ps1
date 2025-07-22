@@ -41,7 +41,7 @@ $packageManagement = $installedSoftware.AddHeader("Package Management")
 $packageManagement.AddToolVersion("Chocolatey", $(Get-ChocoVersion))
 $packageManagement.AddToolVersion("Composer", $(Get-ComposerVersion))
 $packageManagement.AddToolVersion("Helm", $(Get-HelmVersion))
-$packageManagement.AddToolVersion("Miniconda", $(Get-CondaVersion))
+#$packageManagement.AddToolVersion("Miniconda", $(Get-CondaVersion))
 $packageManagement.AddToolVersion("NPM", $(Get-NPMVersion))
 $packageManagement.AddToolVersion("NuGet", $(Get-NugetVersion))
 $packageManagement.AddToolVersion("pip", $(Get-PipVersion))
@@ -75,10 +75,10 @@ $tools.AddToolVersion("Bicep", $(Get-BicepVersion))
 #$tools.AddToolVersion("Cabal", $(Get-CabalVersion))
 $tools.AddToolVersion("CMake", $(Get-CMakeVersion))
 $tools.AddToolVersion("CodeQL Action Bundle", $(Get-CodeQLBundleVersion))
-$tools.AddToolVersion("Docker", $(Get-DockerVersion))
+#$tools.AddToolVersion("Docker", $(Get-DockerVersion))
 #$tools.AddToolVersion("Docker Compose v1", $(Get-DockerComposeVersion))
-$tools.AddToolVersion("Docker Compose v2", $(Get-DockerComposeVersionV2))
-$tools.AddToolVersion("Docker-wincred", $(Get-DockerWincredVersion))
+#$tools.AddToolVersion("Docker Compose v2", $(Get-DockerComposeVersionV2))
+#$tools.AddToolVersion("Docker-wincred", $(Get-DockerWincredVersion))
 #$tools.AddToolVersion("ghc", $(Get-GHCVersion))
 $tools.AddToolVersion("Git", $(Get-GitVersion))
 $tools.AddToolVersion("Git LFS", $(Get-GitLFSVersion))
@@ -117,8 +117,8 @@ $tools.AddToolVersion("yamllint", $(Get-YAMLLintVersion))
 $cliTools = $installedSoftware.AddHeader("CLI Tools")
 $cliTools.AddToolVersion("Alibaba Cloud CLI", $(Get-AlibabaCLIVersion))
 $cliTools.AddToolVersion("AWS CLI", $(Get-AWSCLIVersion))
-$cliTools.AddToolVersion("AWS SAM CLI", $(Get-AWSSAMVersion))
-$cliTools.AddToolVersion("AWS Session Manager CLI", $(Get-AWSSessionManagerVersion))
+#$cliTools.AddToolVersion("AWS SAM CLI", $(Get-AWSSAMVersion))
+#$cliTools.AddToolVersion("AWS Session Manager CLI", $(Get-AWSSessionManagerVersion))
 $cliTools.AddToolVersion("Azure CLI", $(Get-AzureCLIVersion))
 $cliTools.AddToolVersion("Azure DevOps CLI extension", $(Get-AzureDevopsExtVersion))
 <# if (Test-IsWin19) {
@@ -256,11 +256,11 @@ $psModules.AddNote($azPsNotes)
 
 # Cached Docker images
 #$installedSoftware.AddHeader("Cached Docker images").AddTable($(Get-CachedDockerImagesTableData))
-$envTable = @(Get-CachedDockerImagesTableData)
+<# $envTable = @(Get-CachedDockerImagesTableData)
 Write-Host "Section CachedDockerImagesTableData count: $($envTable.Count)"
 if ($envTable -and $envTable.Count -gt 0) {
     $installedSoftware.AddHeader("Cached Docker images").AddTable($envTable)
-}
+} #>
 
 # Generate reports
 $softwareReport.ToJson() | Out-File -FilePath "C:\software-report.json" -Encoding UTF8NoBOM

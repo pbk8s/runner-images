@@ -1,4 +1,4 @@
-Describe "Docker" {
+<# Describe "Docker" {
     It "docker is installed" {
         "docker --version" | Should -ReturnZeroExitCode
     }
@@ -10,26 +10,26 @@ Describe "Docker" {
     It "docker symlink" {
         "C:\Windows\SysWOW64\docker.exe ps" | Should -ReturnZeroExitCode
     }
-}
+} #>
 
-Describe "DockerCompose" {
-<#     It "docker-compose is installed" {
+<# Describe "DockerCompose" {
+    It "docker-compose is installed" {
         "docker-compose --version" | Should -ReturnZeroExitCode
     }
- #>
+
     It "docker compose v2" {
         "docker compose version" | Should -ReturnZeroExitCode
     }
 
-}
+} #>
 
-Describe "DockerWinCred" {
+<# Describe "DockerWinCred" {
     It "docker-wincred" {
         "docker-credential-wincred version" | Should -ReturnZeroExitCode
     }
-}
+} #>
 
-Describe "DockerImages" {
+<# Describe "DockerImages" {
     Context "docker images" {
         $testCases = (Get-ToolsetContent).docker.images | ForEach-Object { @{ ImageName = $_ } }
 
@@ -37,4 +37,4 @@ Describe "DockerImages" {
             docker images "$ImageName" --format "{{.Repository}}" | Should -Not -BeNullOrEmpty
         }
     }
-}
+} #>

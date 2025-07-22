@@ -17,7 +17,7 @@ $downloadUrl = "$baseUrl/$archiveName"
 
 # Paths
 $downloadPath = "$env:TEMP\$archiveName"
-$installDir = "C:\LLVM"
+$installDir = "C:\Program Files\LLVM"
 
 # Clean install directory
 if (Test-Path $installDir) {
@@ -36,7 +36,15 @@ tar -xf $downloadPath -C $installDir
 
 # LLVM folder is nested — detect subdirectory
 $subfolder = Get-ChildItem -Path $installDir | Where-Object { $_.PSIsContainer } | Select-Object -First 1
-$llvmBinPath = Join-Path $subfolder.FullName "bin"
+# Move all contents up one level if subfolder exists
+if ($subfolder) {
+    Write-Host "Flattening extracted LLVM directory structure..."
+    Get-ChildItem -Path $subfolder.FullName | ForEach-Object {
+        Move-Item -Path $_.FullName -Destination $installDir -Force
+    }
+    Remove-Item -Path $subfolder.FullName -Recurse -Force
+}
+$llvmBinPath = Join-Path $installDir "bin"
 
 # Add LLVM bin to system PATH
 $existingPath = [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::Machine)
@@ -53,5 +61,7 @@ $env:Path += ";$llvmBinPath"
 Remove-Item $downloadPath
 
 # Verify installation
-Write-Host "`n✅ Verifying clang installation:"
+Write-Host "Verifying clang installation:"
 & "$llvmBinPath\clang.exe" --version
+
+Invoke-PesterTests -TestFile "LLVM"

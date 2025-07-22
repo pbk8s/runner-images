@@ -15,7 +15,7 @@ $toolEnvConfigs = @{
         pathTemplates  = @(
             "{0}\bin"
         )
-        envVarTemplate = "GOROOT_{0}_{1}_X64"
+        envVarTemplate = "GOROOT_{0}_{1}_AARCH64"
     }
 }
 

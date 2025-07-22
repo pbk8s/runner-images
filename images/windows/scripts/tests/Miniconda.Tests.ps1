@@ -1,4 +1,4 @@
-Describe "Miniconda" {
+<# Describe "Miniconda" {
     It "Miniconda Environment variables is set. " {
         ${env:CONDA} | Should -Not -BeNullOrEmpty
     }
@@ -11,4 +11,4 @@ Describe "Miniconda" {
         $condaPath | Should -Exist
         "$condaPath --version" | Should -ReturnZeroExitCode
     }
-}
+} #>
