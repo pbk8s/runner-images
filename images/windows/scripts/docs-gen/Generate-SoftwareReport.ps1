@@ -112,13 +112,14 @@ $tools.AddToolVersion("WinAppDriver", $(Get-WinAppDriver))
 #$tools.AddToolVersion("WiX Toolset", $(Get-WixVersion))
 $tools.AddToolVersion("yamllint", $(Get-YAMLLintVersion))
 #$tools.AddToolVersion("zstd", $(Get-ZstdVersion))
+$tools.AddToolVersion("Ninja", $(Get-NinjaVersion))
 
 # CLI Tools
 $cliTools = $installedSoftware.AddHeader("CLI Tools")
 $cliTools.AddToolVersion("Alibaba Cloud CLI", $(Get-AlibabaCLIVersion))
 $cliTools.AddToolVersion("AWS CLI", $(Get-AWSCLIVersion))
-#$cliTools.AddToolVersion("AWS SAM CLI", $(Get-AWSSAMVersion))
-#$cliTools.AddToolVersion("AWS Session Manager CLI", $(Get-AWSSessionManagerVersion))
+$cliTools.AddToolVersion("AWS SAM CLI", $(Get-AWSSAMVersion))
+$cliTools.AddToolVersion("AWS Session Manager CLI", $(Get-AWSSessionManagerVersion))
 $cliTools.AddToolVersion("Azure CLI", $(Get-AzureCLIVersion))
 $cliTools.AddToolVersion("Azure DevOps CLI extension", $(Get-AzureDevopsExtVersion))
 <# if (Test-IsWin19) {

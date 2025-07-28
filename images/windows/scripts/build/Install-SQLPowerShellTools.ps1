@@ -9,12 +9,12 @@ $signatureThumbrint = "9ACA9419E53D3C9E56396DD2335FF683A8B0B8F3"
 # install required MSIs
 Install-Binary `
     -Url "${baseUrl}/SQLSysClrTypes.msi" `
-    -ExpectedSignature $signatureThumbrint
+    -ExpectedSubject $(Get-MicrosoftPublisher)
 
 Install-Binary `
     -Url "${baseUrl}/SharedManagementObjects.msi" `
-    -ExpectedSignature $signatureThumbrint
+    -ExpectedSubject $(Get-MicrosoftPublisher)
 
 Install-Binary `
     -Url "${baseUrl}/PowerShellTools.msi" `
-    -ExpectedSignature $signatureThumbrint
+    -ExpectedSubject $(Get-MicrosoftPublisher)

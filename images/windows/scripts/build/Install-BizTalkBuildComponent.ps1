@@ -19,10 +19,10 @@ Write-Host "Installing BizTalk Project Build Component..."
 Install-Binary `
     -LocalPath "$setupPath\Bootstrap.msi" `
     -ExtraInstallArgs ("/l*v", "$setupPath\bootstrap.log") `
-    -ExpectedSignature $signatureThumbprint
+    -ExpectedSubject $(Get-MicrosoftPublisher)
 Install-Binary `
     -LocalPath "$setupPath\BuildComponentSetup.msi" `
     -ExtraInstallArgs ("/l*v", "$setupPath\buildComponentSetup.log") `
-    -ExpectedSignature $signatureThumbprint
+    -ExpectedSubject $(Get-MicrosoftPublisher)
 
 Invoke-PesterTests -TestFile "BizTalk" -TestName "BizTalk Build Component Setup"

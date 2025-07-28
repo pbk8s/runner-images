@@ -9,7 +9,7 @@ if (Test-IsWin19) {
     Install-Binary -Type EXE `
         -Url 'https://go.microsoft.com/fwlink/?linkid=2173743' `
         -InstallArgs @("/features", "+", "/quiet") `
-        -ExpectedSignature '44796EB5BD439B4BFB078E1DC2F8345AE313CBB1'
+        -ExpectedSubject $(Get-MicrosoftPublisher)
 
     $wdkUrl = "https://go.microsoft.com/fwlink/?linkid=2166289"
     $wdkSignatureThumbprint = "914A09C2E02C696AF394048BCB8D95449BCD5B9E"
@@ -17,12 +17,9 @@ if (Test-IsWin19) {
 } elseif (Test-IsWin22) {
     # SDK is available through Visual Studio
     $wdkUrl = "https://go.microsoft.com/fwlink/?linkid=2249371"
-    $wdkSignatureThumbprint = "7C94971221A799907BB45665663BBFD587BAC9F8"
-    $wdkExtensionPath = "C:\Program Files (x86)\Windows Kits\10\Vsix\VS2022\*\WDK.vsix"
 } elseif (Test-IsWin11) {
     # SDK is available through Visual Studio
     $wdkUrl = "https://go.microsoft.com/fwlink/?linkid=2272234"
-    $wdkSignatureThumbprint = "CB9C4FBEA1D87D2D468AC5A9CAAB0163F6AD8401"
     $wdkExtensionPath = "C:\Program Files (x86)\Windows Kits\10\Vsix\VS2022\10.0.26100.0\arm64\WDK.vsix"
 } else {
     throw "Invalid version of Visual Studio is found. Either 2019 or 2022 are required"
@@ -32,9 +29,9 @@ if (Test-IsWin19) {
 Install-Binary -Type EXE `
     -Url $wdkUrl `
     -InstallArgs @("/features", "+", "/quiet") `
-    -ExpectedSignature $wdkSignatureThumbprint
+    -ExpectedSubject $(Get-MicrosoftPublisher)
 
 # Need to install the VSIX to get the build targets when running VSBuild
-Install-VSIXFromFile (Resolve-Path -Path $wdkExtensionPath)
+#Install-VSIXFromFile (Resolve-Path -Path $wdkExtensionPath)
 
 Invoke-PesterTests -TestFile "WDK"

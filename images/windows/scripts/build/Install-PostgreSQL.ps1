@@ -64,7 +64,8 @@ $installerArgs = @("--install_runtimes 0", "--superpassword root", "--enable_acl
 Install-Binary `
     -Url $installerUrl `
     -InstallArgs $installerArgs `
-    -ExpectedSignature (Get-ToolsetContent).postgresql.signature
+    -ExpectedSubject 'CN=EnterpriseDB Corporation, O=EnterpriseDB Corporation, S=Massachusetts, C=US' `
+    -InstallerLogPath "$env:TEMP\**\install-postgresql.log"
 
 # Get Path to pg_ctl.exe
 $pgPath = (Get-CimInstance Win32_Service -Filter "Name LIKE 'postgresql-%'").PathName

@@ -197,6 +197,10 @@ function Get-WinAppDriver {
     return $zstdVersion
 } #>
 
+function Get-NinjaVersion {
+    return $(ninja --version)
+}
+
 function Get-AzureCLIVersion {
     $azureCLIVersion = $(az version) | ConvertFrom-Json | Foreach{ $_."azure-cli" }
     return $azureCLIVersion
