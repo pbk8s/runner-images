@@ -167,7 +167,7 @@ source "azure-arm" "image" {
   communicator                           = "winrm"
   image_offer                            = "windows11preview-arm64"
   image_publisher                        = "microsoftwindowsdesktop"
-  image_sku                              = "win11-24h2-ent"
+  image_sku                              = "win11-25h2-ent"
   location                               = "${var.location}"
   #managed_image_name                     = "${local.managed_image_name}"
   #managed_image_resource_group_name      = "${var.managed_image_resource_group_name}"

@@ -8,7 +8,7 @@
 function Install-Ruby {
     param(
         [String] $PackagePath,
-        [String] $Architecture = "x64"
+        [String] $Architecture = "aarch64"
     )
 
     # Create Ruby toolcache folder
@@ -53,7 +53,7 @@ function Set-DefaultRubyVersion {
         [Parameter(Mandatory = $true)]
         [version] $Version,
         [Alias("Arch")]
-        [string] $Architecture = "x64"
+        [string] $Architecture = "aarch64"
     )
 
     $rubyPath = Join-Path $env:AGENT_TOOLSDIRECTORY "/Ruby/${Version}*/${Architecture}/bin"
@@ -73,7 +73,7 @@ foreach ($rubyVersion in $rubyToolVersions) {
     $downloadUrl = Resolve-GithubReleaseAssetUrl `
         -Repo "oneclick/rubyinstaller2" `
         -Version "$rubyVersion*" `
-        -UrlMatchPattern "*-x64.7z"
+        -UrlMatchPattern "*-arm.7z"
     $packagePath = Invoke-DownloadWithRetry $downloadUrl
     Install-Ruby -PackagePath $packagePath
 }

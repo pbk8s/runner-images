@@ -2,13 +2,12 @@
     "toolcache": [
         {
             "name": "Ruby",
-            "arch": "x64",
+            "arch": "aarch64",
             "platform" : "win32",
             "versions": [
-                "3.3",
                 "3.4"
             ],
-            "default": "3.3"
+            "default": "3.4"
         },
         {
             "name": "Python",
@@ -37,7 +36,8 @@
             "platform" : "win32",
             "versions": [
                 "20.*",
-                "22.*"
+                "22.*",
+                "24.*"
             ]
         },
         {
@@ -48,7 +48,8 @@
             "versions": [
                 "1.22.*",
                 "1.23.*",
-                "1.24.*"
+                "1.24.*",
+                "1.25.*"
             ],
             "default": "1.24.*"
         }
@@ -78,7 +79,7 @@
     ],
     "java": {
         "default": "21",
-        "versions": [ "21", "23"]
+        "versions": [ "21", "23" ]
     },
     "android": {
         "commandline_tools_url": "https://dl.google.com/android/repository/commandlinetools-win-9123335_latest.zip",
@@ -103,7 +104,7 @@
         }
     },
     "mingw": {
-        "version": "12.2.0",
+        "version": "14.*",
         "runtime": "ucrt"
     },
     "MsysPackages": {
@@ -175,8 +176,7 @@
             "Microsoft.VisualStudio.Component.VC.ATL.ARM64.Spectre",
             "Microsoft.VisualStudio.Component.VC.ASAN",
             "Microsoft.VisualStudio.Component.Windows10SDK.19041",
-            "Microsoft.VisualStudio.Component.Windows10SDK.20348",
-            "Microsoft.VisualStudio.Component.Windows11SDK.22000",
+            "Microsoft.VisualStudio.Component.Windows11SDK.22621",
             "Microsoft.VisualStudio.Component.Windows11SDK.26100",
             "Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Llvm.Clang",
             "Microsoft.VisualStudio.ComponentGroup.UWP.VC.v142",
@@ -278,7 +278,7 @@
         ]
     },
     "node": {
-        "default": "22.*"
+        "default": "24.*"
     },
     "maven": {
         "version": "3.9"
@@ -305,7 +305,7 @@
         "version": "latest"
     },
     "openssl": {
-        "version": "3.4.2"
+        "version": "3.*"
     },
     "pwsh": {
         "version": "7.4"

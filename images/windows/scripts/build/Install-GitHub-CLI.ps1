@@ -9,7 +9,7 @@ Write-Host "Get the latest gh version..."
 $downloadUrl = Resolve-GithubReleaseAssetUrl `
     -Repo "cli/cli" `
     -Version "latest" `
-    -UrlMatchPattern "gh_*_windows_amd64.msi"
+    -UrlMatchPattern "gh_*_windows_arm64.msi"
 
 $checksumsUrl = Resolve-GithubReleaseAssetUrl `
     -Repo "cli/cli" `
