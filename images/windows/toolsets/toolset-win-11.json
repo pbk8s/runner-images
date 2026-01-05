@@ -25,9 +25,10 @@
             "platform" : "win32",
             "versions": [
                 "3.12.*",
-                "3.13.*"
+                "3.13.*",
+                "3.14.*"
             ],
-            "default": "3.12.*"
+            "default": "3.13.*"
         },
         {
             "name": "node",
@@ -246,7 +247,8 @@
         "versions": [
             "6.0",
             "8.0",
-            "9.0"
+            "9.0",
+            "10.0"
         ],
         "tools": [
             { "name": "nbgv", "test": "nbgv --version", "getversion": "nbgv --version" }

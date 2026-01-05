@@ -1,6 +1,6 @@
 # Windows 11 Enterprise
-- OS Version: 10.0.26200 Build 6899
-- Image Version: 0.0.9
+- OS Version: 10.0.26200 Build 7462
+- Image Version: 0.0.11
 
 ## Windows features
 - Windows Subsystem for Linux (WSLv1): Enabled
@@ -9,26 +9,26 @@
 
 ### Language and Runtime
 - Bash 5.2.37(1)-release
-- Go 1.24.9
+- Go 1.24.11
 - Julia 1.12.0
-- Kotlin 2.2.20
+- Kotlin 2.3.0
 - LLVM 20.1.6
-- Node 24.10.0
+- Node 24.12.0
 - Perl 5.32.1
-- PHP 8.4.13
-- Python 3.12.10
+- PHP 8.4.15
+- Python 3.13.11
 - Ruby 3.4.7
 
 ### Package Management
-- Chocolatey 2.5.1
-- Composer 2.8.12
-- Helm 3.19.0
-- NPM 11.6.1
-- NuGet 6.14.0.116
-- pip 25.2 (python 3.12)
+- Chocolatey 2.6.0
+- Composer 2.9.2
+- Helm 4.0.3
+- NPM 11.6.2
+- NuGet 7.0.1.1
+- pip 25.3 (python 3.13)
 - Pipx 1.8.0
 - RubyGems 3.6.9
-- Vcpkg (build from commit c59b04f668)
+- Vcpkg (build from commit 544a4c5c29)
 - Yarn 1.22.22
 
 #### Environment variables
@@ -46,19 +46,19 @@
 ### Tools
 - 7zip 25.01
 - aria2 1.37.0
-- azcopy 10.30.1
-- Bazel 8.4.2
+- azcopy 10.31.0
+- Bazel 8.5.0
 - Bazelisk 1.26.0
-- Bicep 0.38.33
-- CMake 3.31.8
-- CodeQL Action Bundle 2.23.2
-- Git 2.51.0.windows.2
-- Git LFS 3.7.0
-- ImageMagick 7.1.2-5
-- InnoSetup 6.5.4
+- Bicep 0.39.26
+- CMake 4.2.1
+- CodeQL Action Bundle 2.23.8
+- Git 2.52.0.windows.1
+- Git LFS 3.7.1
+- ImageMagick 7.1.2-10
+- InnoSetup 6.6.1
 - jq 1.8.1
 - Kind 0.30.0
-- Kubectl 1.34.1
+- Kubectl 1.34.3
 - Mercurial 6.3.1
 - gcc 14.2.0
 - gdb 16.2
@@ -66,48 +66,48 @@
 - Newman 6.2.1
 - NSIS 3.10
 - OpenSSL 3.6.0
-- Packer 1.12.0
-- Pulumi 3.202.0
-- R 4.5.1
+- Packer 1.14.2
+- Pulumi 3.211.0
+- R 4.5.2
 - Stack 3.7.1
 - Swig 4.3.1
 - VSWhere 3.1.7
 - WinAppDriver 1.2.2009.02003
 - yamllint 1.37.1
-- Ninja 1.12.1
+- Ninja 1.13.2
 
 ### CLI Tools
-- Alibaba Cloud CLI 3.0.306
-- AWS CLI 2.31.14
-- AWS SAM CLI 1.145.0
-- AWS Session Manager CLI 1.2.707.0
-- Azure CLI 2.78.0
+- Alibaba Cloud CLI 3.2.2
+- AWS CLI 2.32.17
+- AWS SAM CLI 1.150.1
+- AWS Session Manager CLI 1.2.764.0
+- Azure CLI 2.81.0
 - Azure DevOps CLI extension 1.0.2
-- GitHub CLI 2.81.0
+- GitHub CLI 2.83.2
 
 ### Rust Tools
-- Cargo 1.90.0
-- Rust 1.90.0
-- Rustdoc 1.90.0
+- Cargo 1.92.0
+- Rust 1.92.0
+- Rustdoc 1.92.0
 - Rustup 1.28.2
 
 #### Packages
 - bindgen 0.72.1
-- cargo-audit 0.21.2
+- cargo-audit 0.22.0
 - cargo-outdated 0.17.0
-- cbindgen 0.29.0
-- Clippy 0.1.90
+- cbindgen 0.29.2
+- Clippy 0.1.92
 - Rustfmt 1.8.0
 
 ### Browsers and Drivers
-- Google Chrome 141.0.7390.108
-- Chrome Driver 141.0.7390.78
-- Microsoft Edge 141.0.3537.71
-- Microsoft Edge Driver 141.0.3537.71
-- Mozilla Firefox 144.0
+- Google Chrome 143.0.7499.147
+- Chrome Driver 143.0.7499.146
+- Microsoft Edge 143.0.3650.80
+- Microsoft Edge Driver 143.0.3650.80
+- Mozilla Firefox 146.0
 - Gecko Driver 0.36.0
 - IE Driver 4.14.0.0
-- Selenium server 4.36.0
+- Selenium server 4.39.0
 
 #### Environment variables
 | Name              | Value                              |
@@ -118,27 +118,28 @@
 | SELENIUM_JAR_PATH | C:\selenium\selenium-server.jar    |
 
 ### Java
-| Version              | Environment Variable |
-| -------------------- | -------------------- |
-| 21.0.8+9.0 (default) | JAVA_HOME_21_AARCH64 |
-| 23.0.2+7             | JAVA_HOME_23_AARCH64 |
+| Version               | Environment Variable |
+| --------------------- | -------------------- |
+| 21.0.9+10.0 (default) | JAVA_HOME_21_AARCH64 |
+| 23.0.2+7              | JAVA_HOME_23_AARCH64 |
 
 ### Cached Tools
 
 #### Go
 - 1.22.12
 - 1.23.12
-- 1.24.9
-- 1.25.3
+- 1.24.11
+- 1.25.5
 
 #### Node.js
-- 20.19.5
-- 22.20.0
-- 24.10.0
+- 20.19.6
+- 22.21.1
+- 24.12.0
 
 #### Python
 - 3.12.10
-- 3.13.8
+- 3.13.11
+- 3.14.2
 
 #### Ruby
 - 3.4.7
@@ -146,19 +147,19 @@
 ### Database tools
 - Azure CosmosDb Emulator 2.14.25.0
 - DacFx 170.2.70.1
-- MySQL 8.0.43.0
+- MySQL 8.0.44.0
 - SQL OLEDB Driver 18.7.5.0
 
 ### Web Servers
 | Name   | Version | ConfigFile                            | ServiceName | ServiceStatus | ListenPort |
 | ------ | ------- | ------------------------------------- | ----------- | ------------- | ---------- |
 | Apache | 2.4.55  | C:\tools\Apache24\conf\httpd.conf     | Apache      | Stopped       | 80         |
-| Nginx  | 1.29.2  | C:\tools\nginx-1.29.2\conf\nginx.conf | nginx       | Stopped       | 80         |
+| Nginx  | 1.29.4  | C:\tools\nginx-1.29.4\conf\nginx.conf | nginx       | Stopped       | 80         |
 
 ### Visual Studio Enterprise 2022
 | Name                          | Version       | Path                                                     |
 | ----------------------------- | ------------- | -------------------------------------------------------- |
-| Visual Studio Enterprise 2022 | 17.14.36603.0 | C:\Program Files\Microsoft Visual Studio\2022\Enterprise |
+| Visual Studio Enterprise 2022 | 17.14.36811.4 | C:\Program Files\Microsoft Visual Studio\2022\Enterprise |
 
 #### Workloads, components and extensions
 | Package                                                                   | Version         |
@@ -169,23 +170,23 @@
 | Component.Dotfuscator                                                     | 17.14.36510.44  |
 | Component.Linux.CMake                                                     | 17.14.36510.44  |
 | Component.Linux.RemoteFileExplorer                                        | 17.14.36510.44  |
-| Component.MDD.Android                                                     | 17.14.36510.44  |
+| Component.MDD.Android                                                     | 17.14.36804.6   |
 | Component.MDD.Linux                                                       | 17.14.36510.44  |
 | Component.Microsoft.VisualStudio.RazorExtension                           | 17.14.36510.44  |
 | Component.Microsoft.VisualStudio.Tools.Applications.amd64                 | 17.0.36522.0    |
 | Component.Microsoft.VisualStudio.Web.AzureFunctions                       | 17.14.36510.44  |
 | Component.Microsoft.Web.LibraryManager                                    | 17.14.36510.44  |
 | Component.Microsoft.WebTools.BrowserLink.WebLivePreview                   | 17.14.2.50506   |
-| Component.Microsoft.Windows.DriverKit                                     | 10.0.26100.12   |
+| Component.Microsoft.Windows.DriverKit                                     | 10.0.26100.16   |
 | Component.OpenJDK                                                         | 17.14.36510.44  |
 | Component.Unreal                                                          | 17.14.36510.44  |
 | Component.Unreal.Android                                                  | 17.14.36510.44  |
-| Component.Unreal.Debugger                                                 | 17.14.36510.44  |
+| Component.Unreal.Debugger                                                 | 17.14.36809.9   |
 | Component.Unreal.Ide                                                      | 17.14.36510.44  |
-| Component.VisualStudio.GitHub.Copilot                                     | 17.14.36526.15  |
+| Component.VisualStudio.GitHub.Copilot                                     | 17.14.36809.9   |
 | Component.VSInstallerProjects2022_arm64                                   | 0.0.3           |
 | Component.Xamarin                                                         | 17.14.36510.44  |
-| ComponentGroup.Microsoft.NET.AppModernization                             | 17.14.36603.0   |
+| ComponentGroup.Microsoft.NET.AppModernization                             | 17.14.36705.20  |
 | ios                                                                       | 26.0.9752.0     |
 | maccatalyst                                                               | 26.0.9752.0     |
 | maui.blazor                                                               | 9.0.111.6930    |
@@ -212,19 +213,19 @@
 | Microsoft.Net.ComponentGroup.4.8.DeveloperTools                           | 17.14.36510.44  |
 | Microsoft.Net.ComponentGroup.DevelopmentPrerequisites                     | 17.14.36510.44  |
 | Microsoft.Net.ComponentGroup.TargetingPacks.Common                        | 17.14.36510.44  |
-| microsoft.net.runtime.android                                             | 9.0.1025.47515  |
-| microsoft.net.runtime.android.aot                                         | 9.0.1025.47515  |
-| microsoft.net.runtime.android.aot.net8                                    | 9.0.1025.47515  |
-| microsoft.net.runtime.android.net8                                        | 9.0.1025.47515  |
-| microsoft.net.runtime.ios                                                 | 9.0.1025.47515  |
-| microsoft.net.runtime.maccatalyst                                         | 9.0.1025.47515  |
-| microsoft.net.runtime.mono.tooling                                        | 9.0.1025.47515  |
-| microsoft.net.runtime.mono.tooling.net8                                   | 9.0.1025.47515  |
-| microsoft.net.sdk.emscripten                                              | 9.0.12.46904    |
+| microsoft.net.runtime.android                                             | 9.0.1125.51309  |
+| microsoft.net.runtime.android.aot                                         | 9.0.1125.51309  |
+| microsoft.net.runtime.android.aot.net8                                    | 9.0.1125.51309  |
+| microsoft.net.runtime.android.net8                                        | 9.0.1125.51309  |
+| microsoft.net.runtime.ios                                                 | 9.0.1125.51309  |
+| microsoft.net.runtime.maccatalyst                                         | 9.0.1125.51309  |
+| microsoft.net.runtime.mono.tooling                                        | 9.0.1125.51309  |
+| microsoft.net.runtime.mono.tooling.net8                                   | 9.0.1125.51309  |
+| microsoft.net.sdk.emscripten                                              | 9.0.13.1604     |
 | Microsoft.NetCore.Component.DevelopmentTools                              | 17.14.36510.44  |
-| Microsoft.NetCore.Component.Runtime.8.0                                   | 17.14.36602.14  |
-| Microsoft.NetCore.Component.Runtime.9.0                                   | 17.14.36602.14  |
-| Microsoft.NetCore.Component.SDK                                           | 17.14.36602.14  |
+| Microsoft.NetCore.Component.Runtime.8.0                                   | 17.14.36705.7   |
+| Microsoft.NetCore.Component.Runtime.9.0                                   | 17.14.36717.8   |
+| Microsoft.NetCore.Component.SDK                                           | 17.14.36717.8   |
 | Microsoft.NetCore.Component.Web                                           | 17.14.36510.44  |
 | Microsoft.VisualStudio.Component.AppInsights.Tools                        | 17.14.36510.44  |
 | Microsoft.VisualStudio.Component.AspNet                                   | 17.14.36510.44  |
@@ -242,7 +243,7 @@
 | Microsoft.VisualStudio.Component.Graphics                                 | 17.14.36510.44  |
 | Microsoft.VisualStudio.Component.HLSL                                     | 17.14.36510.44  |
 | Microsoft.VisualStudio.Component.IISExpress                               | 17.14.36510.44  |
-| Microsoft.VisualStudio.Component.IntelliCode                              | 17.14.36511.5   |
+| Microsoft.VisualStudio.Component.IntelliCode                              | 17.14.36621.7   |
 | Microsoft.VisualStudio.Component.IntelliTrace.FrontEnd                    | 17.14.36510.44  |
 | Microsoft.VisualStudio.Component.JavaScript.Diagnostics                   | 17.14.36510.44  |
 | Microsoft.VisualStudio.Component.JavaScript.TypeScript                    | 17.14.36510.44  |
@@ -303,9 +304,9 @@
 | Microsoft.VisualStudio.Component.Web                                      | 17.14.36510.44  |
 | Microsoft.VisualStudio.Component.WebDeploy                                | 17.14.36510.44  |
 | Microsoft.VisualStudio.Component.Windows10SDK                             | 17.14.36510.44  |
-| Microsoft.VisualStudio.Component.Windows10SDK.19041                       | 17.14.36510.44  |
+| Microsoft.VisualStudio.Component.Windows10SDK.19041                       | 17.14.36809.9   |
 | Microsoft.VisualStudio.Component.Windows11SDK.22621                       | 17.14.36510.44  |
-| Microsoft.VisualStudio.Component.Windows11SDK.26100                       | 17.14.36510.44  |
+| Microsoft.VisualStudio.Component.Windows11SDK.26100                       | 17.14.36804.6   |
 | Microsoft.VisualStudio.Component.Windows11Sdk.WindowsPerformanceToolkit   | 17.14.36510.44  |
 | Microsoft.VisualStudio.Component.WindowsAppSdkSupport.CSharp              | 17.14.36510.44  |
 | Microsoft.VisualStudio.Component.WslDebugging                             | 17.14.36510.44  |
@@ -319,13 +320,13 @@
 | Microsoft.VisualStudio.ComponentGroup.Maui.Windows                        | 17.14.36510.44  |
 | Microsoft.VisualStudio.ComponentGroup.MSIX.Packaging                      | 17.14.36510.44  |
 | Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core                  | 17.14.36510.44  |
-| Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Llvm.Clang            | 17.14.36510.44  |
+| Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Llvm.Clang            | 17.14.36802.14  |
 | Microsoft.VisualStudio.ComponentGroup.UWP.NetCoreAndStandard              | 17.14.36510.44  |
 | Microsoft.VisualStudio.ComponentGroup.UWP.VC.v142                         | 17.14.36510.44  |
 | Microsoft.VisualStudio.ComponentGroup.VC.Tools.142.x86.x64                | 17.14.36510.44  |
 | Microsoft.VisualStudio.ComponentGroup.VisualStudioExtension.Prerequisites | 17.14.36510.44  |
 | Microsoft.VisualStudio.ComponentGroup.Web                                 | 17.14.36510.44  |
-| Microsoft.VisualStudio.ComponentGroup.Web.CloudTools                      | 17.14.36510.44  |
+| Microsoft.VisualStudio.ComponentGroup.Web.CloudTools                      | 17.14.36614.30  |
 | Microsoft.VisualStudio.ComponentGroup.WebToolsExtensions                  | 17.14.36510.44  |
 | Microsoft.VisualStudio.ComponentGroup.WebToolsExtensions.CMake            | 17.14.36510.44  |
 | Microsoft.VisualStudio.ComponentGroup.WebToolsExtensions.TemplateEngine   | 17.14.36510.44  |
@@ -334,7 +335,7 @@
 | Microsoft.VisualStudio.Workload.CoreEditor                                | 17.14.36015.10  |
 | Microsoft.VisualStudio.Workload.ManagedDesktop                            | 17.14.36518.2   |
 | Microsoft.VisualStudio.Workload.ManagedGame                               | 17.14.36301.6   |
-| Microsoft.VisualStudio.Workload.NativeCrossPlat                           | 17.14.36526.15  |
+| Microsoft.VisualStudio.Workload.NativeCrossPlat                           | 17.14.36716.0   |
 | Microsoft.VisualStudio.Workload.NativeDesktop                             | 17.14.36517.7   |
 | Microsoft.VisualStudio.Workload.NativeGame                                | 17.14.36331.10  |
 | Microsoft.VisualStudio.Workload.NetCrossPlat                              | 17.14.36518.2   |
@@ -342,14 +343,14 @@
 | Microsoft.VisualStudio.Workload.Node                                      | 17.14.36517.7   |
 | Microsoft.VisualStudio.Workload.Universal                                 | 17.14.36331.10  |
 | Microsoft.VisualStudio.Workload.VisualStudioExtension                     | 17.14.36015.10  |
-| runtimes.ios                                                              | 9.0.1025.47515  |
-| runtimes.maccatalyst                                                      | 9.0.1025.47515  |
-| wasm.tools                                                                | 9.0.1025.47515  |
-| SSIS.MicrosoftDataToolsIntegrationServices                                | 2.0             |
+| runtimes.ios                                                              | 9.0.1125.51309  |
+| runtimes.maccatalyst                                                      | 9.0.1125.51309  |
+| wasm.tools                                                                | 9.0.1125.51309  |
+| SSIS.MicrosoftDataToolsIntegrationServices                                | 2.1.2           |
 | VisualStudioClient.MicrosoftVisualStudio2022InstallerProjectsArm64        | 0.0.3           |
-| Windows Driver Kit                                                        | 10.1.26100.1    |
-| Windows Driver Kit Visual Studio Extension                                | 10.0.26100.12   |
-| Windows Software Development Kit                                          | 10.1.26100.4654 |
+| Windows Driver Kit                                                        | 10.1.26100.6584 |
+| Windows Driver Kit Visual Studio Extension                                | 10.0.26100.16   |
+| Windows Software Development Kit                                          | 10.1.26100.7175 |
 
 #### Microsoft Visual C++
 | Name                                         | Architecture | Version     |
@@ -366,22 +367,22 @@
 - 10.0.26100.0
 
 ### .NET Core Tools
-- .NET Core SDK: 6.0.136, 6.0.203, 6.0.321, 6.0.428, 8.0.121, 8.0.206, 8.0.318, 8.0.415, 9.0.111, 9.0.205, 9.0.306
+- .NET Core SDK: 6.0.136, 6.0.203, 6.0.321, 6.0.428, 8.0.122, 8.0.206, 8.0.319, 8.0.416, 9.0.112, 9.0.205, 9.0.308, 10.0.101
 - .NET Framework: 4.7.2, 4.8, 4.8.1
-- Microsoft.AspNetCore.App: 6.0.5, 6.0.26, 6.0.36, 8.0.6, 8.0.21, 9.0.6, 9.0.10
-- Microsoft.NETCore.App: 6.0.5, 6.0.26, 6.0.36, 8.0.6, 8.0.21, 9.0.6, 9.0.10
-- Microsoft.WindowsDesktop.App: 6.0.5, 6.0.26, 6.0.36, 8.0.6, 8.0.21, 9.0.6, 9.0.10
-- nbgv 3.8.118+69b3e0b5a0
+- Microsoft.AspNetCore.App: 6.0.5, 6.0.26, 6.0.36, 8.0.6, 8.0.22, 9.0.6, 9.0.11, 10.0.1
+- Microsoft.NETCore.App: 6.0.5, 6.0.26, 6.0.36, 8.0.6, 8.0.22, 9.0.6, 9.0.11, 10.0.1
+- Microsoft.WindowsDesktop.App: 6.0.5, 6.0.26, 6.0.36, 8.0.6, 8.0.22, 9.0.6, 9.0.11, 10.0.1
+- nbgv 3.9.50+6feeb89450
 
 ### PowerShell Tools
-- PowerShell 7.4.12
+- PowerShell 7.4.13
 
 #### Powershell Modules
 - Az: 12.5.0
-- AWSPowershell: 5.0.75
+- AWSPowershell: 5.0.118
 - DockerMsftProvider: 1.0.0.8
 - MarkdownPS: 1.10
-- Microsoft.Graph: 2.31.0
+- Microsoft.Graph: 2.33.0
 - Pester: 3.4.0, 5.7.1
 - PowerShellGet: 1.0.0.1, 2.2.5
 - PSScriptAnalyzer: 1.24.0

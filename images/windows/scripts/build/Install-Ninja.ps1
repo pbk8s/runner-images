@@ -1,6 +1,6 @@
-# Install-Ninja-WinArm64.ps1
+# Install-Ninja-WinArm64.ps1 ## Arm64 specific Ninja installation script
 
-$ninjaVersion = "1.12.1"
+$ninjaVersion = "1.13.2"
 $ninjaUrl = "https://github.com/ninja-build/ninja/releases/download/v$ninjaVersion/ninja-winarm64.zip"
 $zipPath = "$env:TEMP\ninja-win-arm64.zip"
 $installDir = "C:\Tools\Ninja"

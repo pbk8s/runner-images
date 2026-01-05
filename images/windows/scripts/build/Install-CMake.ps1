@@ -1,7 +1,7 @@
-# Install-CMake-Arm64.ps1
+# Install-CMake-Arm64 version (Not present in the main x86 repo of runner images)
 
-$cmakeVersion = "3.31.8"
-$cmakeUrl = "https://cmake.org/files/v3.31/cmake-${cmakeVersion}-windows-arm64.msi"
+$cmakeVersion = "4.2.1"
+$cmakeUrl = "https://cmake.org/files/v4.2/cmake-${cmakeVersion}-windows-arm64.msi"
 $installerPath = "$env:TEMP\cmake-arm64.msi"
 
 Write-Host "Downloading CMake $cmakeVersion for Windows Arm64..."

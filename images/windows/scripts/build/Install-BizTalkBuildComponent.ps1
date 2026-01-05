@@ -4,7 +4,7 @@
 ################################################################################
 
 $downloadUrl = "https://aka.ms/BuildComponentSetup.EN"
-$signatureThumbprint = "8740DF4ACB749640AD318E4BE842F72EC651AD80"
+#$signatureThumbprint = "8740DF4ACB749640AD318E4BE842F72EC651AD80"
 
 Write-Host "Downloading BizTalk Project Build Component archive..."
 $zipFile = Invoke-DownloadWithRetry $downloadUrl

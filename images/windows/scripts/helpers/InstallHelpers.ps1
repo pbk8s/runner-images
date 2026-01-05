@@ -48,7 +48,7 @@ function Install-Binary {
         [String] $Type,
         [String[]] $InstallArgs,
         [String[]] $ExtraInstallArgs,
-        [String[]] $ExpectedSubject,
+        [String] $ExpectedSubject,
         [String] $ExpectedSHA256Sum,
         [String] $ExpectedSHA512Sum,
         [String] $InstallerLogPath
@@ -473,7 +473,7 @@ function Get-WindowsUpdateStates {
             }
         }
 
-        # Skip update started event if it was already completed
+        # Skip Running update event if it was already completed
         if ( ($state -eq "Running") -and $completedUpdates.ContainsKey($title) ) {
             continue
         }
@@ -998,7 +998,7 @@ function Test-FileSignature {
         [Parameter(Mandatory = $true, Position = 0)]
         [string] $Path,
         [Parameter(Mandatory = $true, Position = 1)]
-        [string[]] $ExpectedSubject
+        [string] $ExpectedSubject
     )
 
     $signature = Get-AuthenticodeSignature $Path

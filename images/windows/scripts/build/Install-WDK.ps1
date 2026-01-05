@@ -12,14 +12,13 @@ if (Test-IsWin19) {
         -ExpectedSubject $(Get-MicrosoftPublisher)
 
     $wdkUrl = "https://go.microsoft.com/fwlink/?linkid=2166289"
-    $wdkSignatureThumbprint = "914A09C2E02C696AF394048BCB8D95449BCD5B9E"
     $wdkExtensionPath = "C:\Program Files (x86)\Windows Kits\10\Vsix\VS2019\WDK.vsix"
 } elseif (Test-IsWin22) {
     # SDK is available through Visual Studio
     $wdkUrl = "https://go.microsoft.com/fwlink/?linkid=2249371"
 } elseif (Test-IsWin11) {
     # SDK is available through Visual Studio
-    $wdkUrl = "https://go.microsoft.com/fwlink/?linkid=2272234"
+    $wdkUrl = "https://go.microsoft.com/fwlink/?linkid=2335869"
     $wdkExtensionPath = "C:\Program Files (x86)\Windows Kits\10\Vsix\VS2022\10.0.26100.0\arm64\WDK.vsix"
 } else {
     throw "Invalid version of Visual Studio is found. Either 2019 or 2022 are required"
